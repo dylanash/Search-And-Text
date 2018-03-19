@@ -6,13 +6,21 @@ class Search extends Component {
         this.state = {
             keyword: ''
         }; 
-        // this.onInputChange = this.onInputChange.bind(this);
-        // this.onFormSubmit = this.onFormSubmit.bind(this);
+        this.inputChange = this.inputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     inputChange(event) {
         // event.preventDefault();
         this.setState({keyword: event.target.value});
+        // event.preventDefault();
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.keyword);
+        
+
     }
 
 
@@ -21,7 +29,8 @@ class Search extends Component {
 
         return (
             <div className="search" >
-                <form className="search-form" >
+                <form className="search-form" 
+                    onSubmit={this.handleSubmit} >
                     <input 
                         placeholder="Water you want?"
                         className="form-input"

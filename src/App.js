@@ -24,7 +24,7 @@ class App extends React.Component {
           <Search />
         </div>
         <div>
-          {/* <TextCompare /> */}
+          <TextCompare />
         </div>
         <button
           onClick={() => {
