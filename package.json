@@ -1,7 +1,7 @@
 {
-  "name": "minimal-react-starter",
+  "name": "search-and-text",
   "version": "0.1.0",
-  "description": "Minimal react starter project",
+  "description": "Seach request and text comparison",
   "main": "src/index.js",
   "scripts": {
     "compile": "webpack",
@@ -15,11 +15,11 @@
     "minimal",
     "starter"
   ],
-  "author": "Andrew H Farmer",
+  "author": "Dylan McBurnett",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ahfarmer/minimal-react-starter.git"
+    "url": "git://github.com/dylanash"
   },
   "dependencies": {
     "babel-core": "^6.26.0",
