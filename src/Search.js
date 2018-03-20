@@ -1,8 +1,4 @@
 import React, {Component} from 'react';
-import keys from '../keys';
-// import Bing from 'node-bing-api';
-// var Bing = require('bing-search-api');
-// import grabber from 'bing-grabber';
 import axios from 'axios';
 
 class Search extends Component {
@@ -17,17 +13,14 @@ class Search extends Component {
         }; 
         this.inputChange = this.inputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.searchDuck = this.searchDuck.bind(this);
     }
 
     searchDuck(term) {
     
         axios.get(`https://api.duckduckgo.com/?q=${term}&format=json`)
         .then((res) => {
-            console.log("RESSSS: ", res.data);
+            // console.log("RES.DATA: ", res.data);
             if (res.data.Heading) {
-                // let = theTerm = res.data.Heading;
-                console.log("Term: ", res.data.AbstractURL)
                 this.setState({searchTerm: res.data.Heading});
                 this.setState({searchUrl: res.data.AbstractURL});
                 this.setState({searchImage: res.data.Image})
@@ -37,32 +30,19 @@ class Search extends Component {
         .catch((err) =>{
             console.error(err);
         } )
-
     }
 
     inputChange(event) {
-        // event.preventDefault();
         this.setState({keyword: event.target.value});
     }
 
     handleSubmit(event) {
-        // event.preventDefault();
         event.preventDefault();
-        console.log("key", this.state.keyword);
         let keyword = this.state.keyword
-        // console.log(this.state.keyword);
-        // if (this.state.keyword.length > 0) {
             this.searchDuck(keyword);
-
-        // }
-        // this.setState({keyword:''});
-
     }
 
     render() {
-        console.log("KEYS: ", keys.accKey);
-
-
         return (
             <div className="search" >
                 <h3>Search Using DuckDuckGo! (mostly Wikipedia results) </h3>
