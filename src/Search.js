@@ -59,23 +59,6 @@ class Search extends Component {
 
     }
 
-    componentDidMount() {
-
-        // axios.get(`https://api.duckduckgo.com/?q=kayaking&format=json`)
-        // .then((res) => {
-        //     console.log("TEST: ", res.data);
-        //     if (res.data.Heading) {
-        //         // let = theTerm = res.data.Heading;
-        //         console.log("Term: ", res.data.Heading)
-        //         // this.setState({searchTerm:theTerm})
-        //     }
-        // } )
-        // .catch((err) =>{
-        //     console.error(err);
-        // } )
-    }
-
-
     render() {
         console.log("KEYS: ", keys.accKey);
 
@@ -91,8 +74,9 @@ class Search extends Component {
                         value={this.state.keyword}
                         onChange={this.inputChange}
                     />
-                    <button className="search-button" 
-                            >Search</button>
+                    <button className="search-button" >Search</button>
+                    <div>Suggestions for search: kayaking, twizzlers, six flags, jamba juice etc.</div>
+
                 </form>
                 <div 
                 className="search-results">Search Results<br />
@@ -107,9 +91,9 @@ class Search extends Component {
                     </a><br/>
                     {this.state.searchImage.length > 0 ? 
                         <img src={this.state.searchImage} 
+                        className="search-image"
                         alt="No image found for this search"
-                        height="200"
-                        className="search-image" />
+                        height="200" />
                         : ''}<br/>
                 </div>
             </div>
