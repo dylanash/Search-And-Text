@@ -7,14 +7,22 @@ class TextCompare extends Component {
             fieldA: '',
             fieldB: ''
         }; 
-        // this.onInputChange = this.onInputChange.bind(this);
-        // this.onFormSubmit = this.onFormSubmit.bind(this);
+        // this.textInputChange = this.textInputChange.bind(this);
+        // this.handleCompare = this.handleCompare.bind(this);
     }
 
     textInputChange(event) {
         // event.preventDefault();
-        console.log("Event: ", event);
-        // this.setState({field: event.target.value});
+        console.log("Event target: ", event.target);
+        // this.setState({keyword: event.target.value});
+        // event.preventDefault();
+    }
+
+    handleCompare(event) {
+        event.preventDefault();
+        console.log(this.state.keyword);
+        
+
     }
 
 

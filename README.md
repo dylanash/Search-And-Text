@@ -17,53 +17,60 @@ npm start
 Usage
 ---
 
-1. `node server.js`
+1. `node server.js` OR `npm start`
 
 2. Open [http://localhost:3000/](http://localhost:3000/).
 
 
+1. Search engine query
 
-Build it from Scratch
----
-Starter projects can be difficult for beginners to use because of all the moving pieces. To help you understand this starter project, there is a [7-step walkthrough](http://andrewhfarmer.com/build-your-own-starter/) showing how to create it from scratch.
-
+Write a Javascript application (command-line or GUI) that prompts the user for a text string, performs a Web search (Google/Yahoo/Bing/etc - your choice) and returns the title and URL of the first result. Use any tools / libraries you wish, but you must provide instructions on how to build and run your application. Please include a brief description of your application and why you implemented it the way you did.
 
 
-Why Minimal?
----
-The primary purpose of this project is **learning.**
+2. Pattern matching
 
-For **learning**, a minimal starter project is best. Too many dependencies can cause confusion for a beginner. The process of selecting and adding what you need to a minimal project can be a good way to learn.
+You are given two text files: (a) input.txt - a free-text document composed of 1 or more lines of text, and (b) patterns.txt - a set of search strings (1 per line). Write a Javascript application (command-line or GUI) that can run in three following modes:
+
+Required:
+
+Mode 1: output all the lines from input.txt that match exactly any pattern in patterns.txt
+
+Optional:
+
+Mode 2: output all the lines from input.txt that contain a match from patterns.txt somewhere in the line.
+
+Mode 3: output all the lines from input.txt that contain a match with edit distance <= 1 patterns.txt
+
+An example:
+
+input.txt
+Hello.  This is line 1 of text.
+and this is another.
+line 3 here
+the end
+
+patterns.txt
+the end
+matches
+line 3
+and this is anoother.
+
+Mode 1 outputs:
+the end
+
+Mode 2 outputs:
+line 3 here
+the end
+
+Mode 3 outputs:
+and this is another.
+the end
+
+Notes
+
+Please feel free to use any tools / libraries you wish, as long as you provide complete and clear instructions on how to build and run your application.
+
+Please include a brief description of your application and why you implemented it the way you did.
 
 
 
-Why not more Minimal?
----
-Babel and Webpack are the two tools that I view as completely essential in a React project.
-
-There are no other tools that I have used consistently in every single React project that I have built, no matter how large or how small.
-
-**Babel:** Even if you are just writing a quick test, you will likely want to use JSX in your components rather than writing out `React.createElement` over and over.
-
-**Webpack:** Webpack serves as both the web server and the JavaScript bundler. The only alternative to using a bundler would be to include a `<script>` tag for each of your `.js` files, and that gets messy very quickly, even in a simple project.
-
-
-
-More Details
----
-
-* No CSS. For experiments or tests, put your styles in `index.html` in a `<style>` tag. For real projects, pick from [these style tools](http://andrewhfarmer.com/how-to-style-react/).
-* No Flux. If you need it - try [Redux](https://github.com/reactjs/redux) or [MobX](https://github.com/mobxjs/mobx)!
-* Webpack is run with the `express` and `webpack-dev-middleware`.
-* The 'content base' is set to `www`. Any files in that directory will be served by express.
-
-
-
-HMR
----
-
-HMR is not supported in the master branch for simplicity. If you would like HMR support, you can [see the changes that add HMR support](https://github.com/ahfarmer/minimal-react-starter/compare/hmr) or you can directly clone the HMR branch:
-
-```
-git clone -b hmr git@github.com:ahfarmer/minimal-react-starter.git
-```
