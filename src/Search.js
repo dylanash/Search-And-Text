@@ -45,7 +45,7 @@ class Search extends Component {
     render() {
         return (
             <div className="search" >
-                <h3>Search Using DuckDuckGo! (mostly Wikipedia results) </h3>
+                <h3>Search Using DuckDuckGo! (mostly just Wikipedia results) </h3>
                 <form className="search-form" 
                     onSubmit={this.handleSubmit} >Search here:
                     <input 
