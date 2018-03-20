@@ -28,8 +28,10 @@ class Search extends Component {
             if (res.data.Heading) {
                 // let = theTerm = res.data.Heading;
                 console.log("Term: ", res.data.AbstractURL)
-                this.setState({searchTerm: res.data.Heading})
-                this.setState({searchUrl: res.data.AbstractURL})
+                this.setState({searchTerm: res.data.Heading});
+                this.setState({searchUrl: res.data.AbstractURL});
+                this.setState({searchImage: res.data.Image})
+
             }
         } )
         .catch((err) =>{
@@ -80,7 +82,7 @@ class Search extends Component {
 
         return (
             <div className="search" >
-                <h3>Search It</h3>
+                <h3>Search Using DuckDuckGo! (mostly Wikipedia results) </h3>
                 <form className="search-form" 
                     onSubmit={this.handleSubmit} >Search here:
                     <input 
@@ -90,11 +92,25 @@ class Search extends Component {
                         onChange={this.inputChange}
                     />
                     <button className="search-button" 
-                            >Clickity Doo Dah</button>
+                            >Search</button>
                 </form>
-                <div className="search-results">Search Results<br />
-                    <span>{this.state.searchTerm ? this.state.searchTerm : ''}</span>
-                    <span>{this.state.searchUrl ? this.state.searchUrl : ''}</span>
+                <div 
+                className="search-results">Search Results<br />
+                    <div 
+                    className="search-term" >
+                    {this.state.searchTerm ? this.state.searchTerm : ''}
+                    </div><br/>
+                    <a
+                    className="search-url" 
+                    href={this.state.searchUrl} >
+                    {this.state.searchUrl ? this.state.searchUrl : ''}
+                    </a><br/>
+                    {this.state.searchImage.length > 0 ? 
+                        <img src={this.state.searchImage} 
+                        alt="No image found for this search"
+                        height="200"
+                        className="search-image" />
+                        : ''}<br/>
                 </div>
             </div>
         );
