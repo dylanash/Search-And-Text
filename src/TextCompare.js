@@ -5,16 +5,74 @@ class TextCompare extends Component {
         super();
         this.state = {
             fieldA: '',
-            fieldB: ''
+            fieldB: '',
+            modeX: [],
+            modeY: [],
+            modeZ: []
         }; 
         this.textInputChange = this.textInputChange.bind(this);
         this.handleCompare = this.handleCompare.bind(this);
     }
+    // return lines from A that exactly match B
+    mode1 (arr1, arr2) {
+        let res = [];
+        arr1.forEach( lineA => {
+            arr2.forEach(lineB => {
+                if (lineA === lineB && !res.includes(lineA)) {
+                    res.push(lineA);
+                }
+            })
+        })
+        this.setState({modeX: res}, function() {
+            console.log("ModeX --", this.state.modeX);
+        })
+    }
+    // output all the lines from input.txt that contain a match from patterns.txt
+    //  somewhere in the line.
+    mode2 (arr1, arr2) {
+        let res = [];
+        arr1.forEach( lineA => {
+            arr2.forEach(lineB => {
+                let aLength = lineA.length;
+                let bLength = lineB.length;
+
+                for (let i = 0; i < (aLength - bLength + 1) ; i++) {
+                    if (lineB == lineA.slice(i, i+bLength) && !res.includes(lineA)) {
+                        res.push(lineA);
+                    }
+                }
+            })
+        })
+        this.setState({modeY: res}, function() {
+            console.log("ModeY --", this.state.modeY);
+        })       
+    }
+
+    mode3 (arr1, arr2) {
+        let res = [];
+        arr1.forEach( lineA => {
+            arr2.forEach(lineB => {
+                let bLength = lineB.length;
+
+                if (lineA === lineB) {
+                    res.push(lineA);
+                }
+
+                for (let k = 0; k < bLength ; k++) {
+                    let tempB = lineB.slice(0,k)+lineB.slice(k+1);
+                    console.log("lineB - ", tempB);
+                    if (tempB == lineA && !res.includes(lineA)) {
+                        res.push(lineA);
+                    }
+                }
+            })
+        })
+        this.setState({modeZ: res}, function() {
+            console.log("ModeZ --", this.state.modeZ);
+        })  
+    }
 
     textInputChange(event, field) {
-        // event.preventDefault();
-        console.log('f:', field)
-        console.log('event:',event)
         if(field === 'fieldA'){
             this.setState({
                 fieldA: event
@@ -24,34 +82,63 @@ class TextCompare extends Component {
                 fieldB: event
             })
         }
-      
-
-        // event.preventDefault();
     }
 
     handleCompare(event) {
         event.preventDefault();
         // console.log(this.state.keyword);
-    }
+        let arrA = this.state.fieldA.split('\n');
+        let arrB = this.state.fieldB.split('\n');
+        console.log("A --: ", arrA);
+        console.log("B --: ", arrB);
 
+        this.mode1(arrA, arrB);
+        this.mode2(arrA, arrB);
+        this.mode3(arrA, arrB);
+
+    }
 
     render() {
         return (
             <div className="search" >
                 <form className="search-form" >
-                    <input 
+                    <textarea 
                         placeholder="Enter some text"
+
                         className="text-a"
                         value={this.state.fieldA}
                         onChange={(event) => this.textInputChange(event.target.value, "fieldA")}
                     />
-                    <input 
+                    <div className="comparison" >See Results Here<br/>
+                        <h4>Mode 1 - Direct comparison by line</h4>
+                        <div className="comp-x" >{this.state.modeX
+                        .map(x => {
+                            return <div>{x}</div>
+                        }
+                        )}
+                        </div>
+                        <h4>Mode 2 - Comparing word segments</h4>
+                        <div className="comp-y" >{this.state.modeY
+                        .map(y => {
+                            return <div>{y}</div>
+                        }
+                        )}
+                        </div>
+                        <h4>Mode 3 - Comparing lines with single letter differences</h4>
+                        <div className="comp-z" >{this.state.modeZ
+                        .map(z => {
+                            return <div>{z}</div>
+                        }
+                        )}
+                        </div>
+                    </div>
+                    <textarea
                         placeholder="Enter text to compare to other text"
                         className="text-b"
                         value={this.state.fieldB}
                         onChange={(event) => this.textInputChange(event.target.value, "fieldB")}
                     />
-                    <button className="search-button" >Compare Text Fields</button>
+                    <button className="search-button" onClick={this.handleCompare} >Compare Text Fields</button>
                 </form>
             </div>
         );
