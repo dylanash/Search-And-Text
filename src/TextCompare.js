@@ -1,5 +1,14 @@
 import React, {Component} from 'react';
 
+/*
+Takes in two peices of text and compares them with three different sets of parameters
+Note: text must be input with new-lines or will all be considered one text segment
+Text from the right-side is compared to text on the left-side
+- Mode 1 - Returns exact line matches between L & R
+- Mode 2 - Returns partial matches between L & R
+- Mode 3 - Returns lines that are exactly the same or different by 1-character
+*/
+
 class TextCompare extends Component {
     constructor() {
         super();
@@ -27,8 +36,7 @@ class TextCompare extends Component {
             console.log("ModeX --", this.state.modeX);
         })
     }
-    // output all the lines from input.txt that contain a match from patterns.txt
-    //  somewhere in the line.
+    // returns partial matches from A & B
     mode2 (arr1, arr2) {
         let res = [];
         arr1.forEach( lineA => {
@@ -48,6 +56,7 @@ class TextCompare extends Component {
         })       
     }
 
+    // returns exact matches and matches that differ by 1-letter
     mode3 (arr1, arr2) {
         let res = [];
         arr1.forEach( lineA => {
