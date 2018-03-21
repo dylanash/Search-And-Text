@@ -1,4 +1,5 @@
-Minimal React Starter
+Search The Web & Compare Text Snippets
+By Dylan McBurnett
 ---
 
 Setup
