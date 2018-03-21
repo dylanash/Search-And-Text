@@ -33,7 +33,6 @@ class TextCompare extends Component {
             })
         })
         this.setState({modeX: res}, function() {
-            console.log("ModeX --", this.state.modeX);
         })
     }
     // returns partial matches from A & B
@@ -51,9 +50,7 @@ class TextCompare extends Component {
                 }
             })
         })
-        this.setState({modeY: res}, function() {
-            console.log("ModeY --", this.state.modeY);
-        })       
+        this.setState({modeY: res});       
     }
 
     // returns exact matches and matches that differ by 1-letter
@@ -69,16 +66,14 @@ class TextCompare extends Component {
 
                 for (let k = 0; k < bLength ; k++) {
                     let tempB = lineB.slice(0,k)+lineB.slice(k+1);
-                    console.log("lineB - ", tempB);
+
                     if (tempB == lineA && !res.includes(lineA)) {
                         res.push(lineA);
                     }
                 }
             })
         })
-        this.setState({modeZ: res}, function() {
-            console.log("ModeZ --", this.state.modeZ);
-        })  
+        this.setState({modeZ: res});  
     }
 
     textInputChange(event, field) {
@@ -95,11 +90,8 @@ class TextCompare extends Component {
 
     handleCompare(event) {
         event.preventDefault();
-        // console.log(this.state.keyword);
         let arrA = this.state.fieldA.split('\n');
         let arrB = this.state.fieldB.split('\n');
-        console.log("A --: ", arrA);
-        console.log("B --: ", arrB);
 
         this.mode1(arrA, arrB);
         this.mode2(arrA, arrB);

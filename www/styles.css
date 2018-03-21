@@ -40,6 +40,10 @@ hr {
     padding: 0;
 }
 
+.comp-x, .comp-y, .comp-z {
+    background-color: darkseagreen;
+}
+
 .compare-wrapper {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
