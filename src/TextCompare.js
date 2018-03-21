@@ -95,14 +95,14 @@ class TextCompare extends Component {
         this.mode1(arrA, arrB);
         this.mode2(arrA, arrB);
         this.mode3(arrA, arrB);
-
     }
 
     render() {
         return (
             <div>
-                <form className="search-form" >
-                    <div className="search-wrapper" >
+                <h3>Compare Two Pieces Of Text</h3>
+                <form className="compare-form" >
+                    <div className="compare-wrapper" >
                         <div className="text-a-wrapper">
                             <textarea 
                                 rows="10"

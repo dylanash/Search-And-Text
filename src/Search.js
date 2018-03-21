@@ -26,7 +26,7 @@ class Search extends Component {
                 this.setState({searchImage: res.data.Image})
 
             }
-        } )
+        })
         .catch((err) =>{
             console.error(err);
         } )
@@ -45,11 +45,11 @@ class Search extends Component {
     render() {
         return (
             <div className="search" >
-                <h3>Search Using DuckDuckGo! (mostly just Wikipedia results) </h3>
+                <h3>Search Using DuckDuckGo!</h3>
                 <form className="search-form" 
-                    onSubmit={this.handleSubmit} >Search here:
+                    onSubmit={this.handleSubmit} >
                     <input 
-                        placeholder="Water you want?"
+                        placeholder="Enter Keyword"
                         className="form-input"
                         value={this.state.keyword}
                         onChange={this.inputChange}
@@ -63,18 +63,18 @@ class Search extends Component {
                     <div 
                     className="search-term" >
                     {this.state.searchTerm ? this.state.searchTerm : ''}
-                    </div><br/>
+                    </div>
                     <a
                     className="search-url" 
                     href={this.state.searchUrl} >
                     {this.state.searchUrl ? this.state.searchUrl : ''}
-                    </a><br/>
+                    </a>
                     {this.state.searchImage.length > 0 ? 
                         <img src={this.state.searchImage} 
                         className="search-image"
                         alt="No image found for this search"
                         height="200" />
-                        : ''}<br/>
+                        : ''}
                 </div>
             </div>
         );

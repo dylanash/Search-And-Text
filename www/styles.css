@@ -1,4 +1,46 @@
-.search-wrapper {
+.header {
+    background-color: black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: -2px 3px 5px rgba(77, 78, 79, 0.2); 
+}
+  
+  .title {
+    margin: 1%;
+    margin-bottom: 2%;
+    padding-left: 5%;
+    font-size: 36px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+.by-line {
+    margin: 1%;
+    margin-bottom: 2%;
+    padding-left: 5%;
+    font-size: 18px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif; 
+}
+
+body {
+    margin: 2%;
+    /* margin-left: 10%;
+    margin-right: 10%; */
+    cursor: default;
+    font-family: 'Roboto', sans-serif; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.compare-wrapper {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         grid-gap: 10px;

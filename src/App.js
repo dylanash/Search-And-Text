@@ -23,6 +23,7 @@ class App extends React.Component {
         <div className="search-holder">
           <Search />
         </div>
+        <hr/>
         <div className="compare-holder" >
           <TextCompare />
         </div>
