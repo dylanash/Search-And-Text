@@ -20,6 +20,7 @@ Usage
 1. `node server.js` OR `npm start`
 
 2. Open [http://localhost:3000/](http://localhost:3000/).
+OR go to -- 
 
 
 1. Search engine query
@@ -65,12 +66,6 @@ the end
 Mode 3 outputs:
 and this is another.
 the end
-
-Notes
-
-Please feel free to use any tools / libraries you wish, as long as you provide complete and clear instructions on how to build and run your application.
-
-Please include a brief description of your application and why you implemented it the way you did.
 
 
 

@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 
-class Search extends Component {
+/*
+Search function using axios requests to DuckDuckGo
+DuckDuck takes the term and returns data that is parsed to deliver
+- a Title of the first result
+- a URL of the first result
+- an image if available
+*/
 
+class Search extends Component {
     constructor() {
         super();
         this.state = {
@@ -19,7 +26,6 @@ class Search extends Component {
     
         axios.get(`https://api.duckduckgo.com/?q=${term}&format=json`)
         .then((res) => {
-            // console.log("RES.DATA: ", res.data);
             if (res.data.Heading) {
                 this.setState({searchTerm: res.data.Heading});
                 this.setState({searchUrl: res.data.AbstractURL});
