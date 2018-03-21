@@ -23,16 +23,9 @@ class App extends React.Component {
         <div className="search-holder">
           <Search />
         </div>
-        <div>
+        <div className="compare-holder" >
           <TextCompare />
         </div>
-        <button
-          onClick={() => {
-            this.setState({ count: this.state.count + 1 });
-          }}
-        >
-          Count: {this.state.count}
-        </button>
       </div>
     );
   }

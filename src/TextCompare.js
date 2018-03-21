@@ -100,45 +100,50 @@ class TextCompare extends Component {
 
     render() {
         return (
-            <div className="search" >
+            <div>
                 <form className="search-form" >
-                    <textarea 
-                        placeholder="Enter some text"
+                    <div className="search-wrapper" >
+                        <div className="text-a-wrapper">
+                            <textarea 
+                                rows="10"
+                                placeholder="Enter some text to compare. Use multiple lines."
 
-                        className="text-a"
-                        value={this.state.fieldA}
-                        onChange={(event) => this.textInputChange(event.target.value, "fieldA")}
-                    />
-                    <div className="comparison" >See Results Here<br/>
-                        <h4>Mode 1 - Direct comparison by line</h4>
-                        <div className="comp-x" >{this.state.modeX
-                        .map(x => {
-                            return <div>{x}</div>
-                        }
-                        )}
+                                className="text-a-input"
+                                value={this.state.fieldA}
+                                onChange={(event) => this.textInputChange(event.target.value, "fieldA")}
+                            />
                         </div>
-                        <h4>Mode 2 - Comparing word segments</h4>
-                        <div className="comp-y" >{this.state.modeY
-                        .map(y => {
-                            return <div>{y}</div>
-                        }
-                        )}
+                        <div className="comparison" >
+                            <button 
+                                className="compare-button" 
+                                onClick={this.handleCompare} >Compare Text Areas
+                            </button>
+                            <h4>Mode 1 - Direct Line Comparison</h4>
+                            <div className="comp-x" >{this.state.modeX.map(x => {
+                                return <div>{x}</div>
+                                })}
+                            </div>
+                            <h4>Mode 2 - Comparing Line Segments</h4>
+                            <div className="comp-y" >{this.state.modeY.map(y => {
+                                return <div>{y}</div>
+                                })}
+                            </div>
+                            <h4>Mode 3 - Comparing Segemnents With 1-letter Differences</h4>
+                            <div className="comp-z" >{this.state.modeZ.map(z => {
+                                return <div>{z}</div>
+                                })}
+                            </div>
                         </div>
-                        <h4>Mode 3 - Comparing lines with single letter differences</h4>
-                        <div className="comp-z" >{this.state.modeZ
-                        .map(z => {
-                            return <div>{z}</div>
-                        }
-                        )}
+                        <div className="text-b-wrapper">
+                            <textarea
+                                rows="10"
+                                placeholder="Enter text lines to compare to the text in the left box."
+                                className="text-b-input"
+                                value={this.state.fieldB}
+                                onChange={(event) => this.textInputChange(event.target.value, "fieldB")}
+                            />
                         </div>
                     </div>
-                    <textarea
-                        placeholder="Enter text to compare to other text"
-                        className="text-b"
-                        value={this.state.fieldB}
-                        onChange={(event) => this.textInputChange(event.target.value, "fieldB")}
-                    />
-                    <button className="search-button" onClick={this.handleCompare} >Compare Text Fields</button>
                 </form>
             </div>
         );

@@ -1,0 +1,42 @@
+.search-wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(100px, auto);
+}
+
+.text-a-wrapper {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.comparison {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.text-b-wrapper {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+/* .button-wrapper {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: center;
+} */
+
+button {
+    background-color: rgba(211, 199, 199, 0.637);
+}
+
+.compare-button {
+    /* width: 18%; */
+    position: absolute;
+    margin:auto;
+    display:block;
+}
+
+textarea { 
+    height: auto; 
+}
