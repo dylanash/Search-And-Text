@@ -20,7 +20,7 @@ Usage
 1. `node server.js` OR `npm start`
 
 2. Open [http://localhost:3000/](http://localhost:3000/).
-OR go to -- 
+OR go to -- https://serene-forest-93913.herokuapp.com/
 
 
 1. Search engine query
